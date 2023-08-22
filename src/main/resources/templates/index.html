@@ -30,11 +30,11 @@
         </tr>
         </thead>
         <tbody id="proceeds_body">
-            <tr th:each="list : ${proceedsList}">
+            <tr th:each="list : ${list}">
                 <td th:text="${list.date}"></td>
                 <td th:text="${list.manager}"></td>
                 <td th:text="${list.client}"></td>
-                <td th:text="${list.prceeds}"></td>
+                <td th:text="${list.proceeds}"></td>
                 <td th:text="${list.payment}"></td>
             </tr>
         </tbody>
