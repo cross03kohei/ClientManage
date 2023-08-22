@@ -36,6 +36,18 @@ public class Proceeds {
     @Column(name = "cost")
     private Integer cost;
 
+    /**
+     * 入金額
+     */
+    @Column(name = "payment")
+    private Integer payment;
+
+    /**
+     * 概要
+     */
+    @Column(name = "content",length = 30)
+    private String content;
+
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
