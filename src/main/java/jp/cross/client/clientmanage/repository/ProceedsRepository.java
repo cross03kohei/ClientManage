@@ -13,6 +13,6 @@ public interface ProceedsRepository extends JpaRepository<Proceeds,Integer>, Jpa
     @Query(value = "SELECT * FROM proceeds ORDER BY date DESC", nativeQuery = true)
     List<Proceeds> getProceedsDesc();
 
-    @Query("SELECT m FROM Proceeds m")
+    @Query("SELECT m FROM Proceeds m order by m.date desc")
     List<Proceeds> getProceedsList();
 }
