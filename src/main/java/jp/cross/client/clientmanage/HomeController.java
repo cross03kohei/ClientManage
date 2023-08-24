@@ -23,8 +23,9 @@ public class HomeController {
     }
 
     @GetMapping("/search")
-    String searchList(Model model, @RequestParam("month") String month){
-
+    String searchList(Model model, @RequestParam("date") String date){
+        List<Proceeds> proceedsList = service.searchList(date);
+        model.addAttribute("list",proceedsList);
         return "index";
     }
 

@@ -7,10 +7,10 @@
 <body>
     <h1>売上一覧</h1>
     <div class="search_form">
-        <form method="get" th:action="@{/search}">
+        <form action="/search">
             <div class="form_date">
                 <label>年月</label>
-                <input name="date" type="month" id="date"  >
+                <input name="date" type="month" id="date" >
             </div>
             <div class="search_submit">
                 <input type="submit" value="検索">
