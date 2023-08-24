@@ -10,9 +10,6 @@ import java.util.List;
 
 public interface ProceedsRepository extends JpaRepository<Proceeds,Integer>, JpaSpecificationExecutor<Proceeds> {
 
-    @Query(value = "SELECT * FROM proceeds ORDER BY date DESC", nativeQuery = true)
-    List<Proceeds> getProceedsDesc();
-
     @Query("SELECT m FROM Proceeds m order by m.date desc")
     List<Proceeds> getProceedsList();
 }
