@@ -1,6 +1,7 @@
 package jp.cross.client.clientmanage;
 
 import jp.cross.client.clientmanage.entity.Proceeds;
+import jp.cross.client.clientmanage.request.ClientRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +24,7 @@ public class HomeController {
     }
     @GetMapping("/client")
     String clientAdd(Model model){
+        model.addAttribute("clientRequest",new ClientRequest());
         return "client_add";
     }
 

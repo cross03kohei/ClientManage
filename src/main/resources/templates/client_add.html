@@ -6,9 +6,9 @@
 </head>
 <body>
   <h2>顧客追加</h2>
-  <form  th:action="client/add" th:object="${clientRequest}">
+  <form  action="/client/add" th:object="${clientRequest}">
     <label>名前</label>
-    <input name="client_name" type="text" th:field="*{name}">
+    <input name="client_name" type="text" th:field="*{clientName}">
     <label>電話番号</label>
     <input name="telephone_number" type="text" th:field="*{telephoneNumber}">
     <label>住所</label>
