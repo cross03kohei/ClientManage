@@ -23,9 +23,14 @@ public class HomeController {
         return "index";
     }
     @GetMapping("/client")
-    String clientAdd(Model model){
+    String clientadd(Model model){
         model.addAttribute("clientRequest",new ClientRequest());
         return "client_add";
+    }
+
+    @GetMapping("/client/add")
+    String clientCreate(ClientRequest client){
+        return "redirect:/index";
     }
 
     @GetMapping("/search")
