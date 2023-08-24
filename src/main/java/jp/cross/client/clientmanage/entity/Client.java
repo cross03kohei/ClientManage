@@ -26,7 +26,7 @@ public class Client {
      * 電話番号
      */
     @Column(name="telephone_number", nullable = false, length = 12)
-    private String telephone_number;
+    private String telephoneNumber;
 
     /**
      * 住所
