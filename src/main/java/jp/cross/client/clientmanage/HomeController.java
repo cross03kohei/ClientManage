@@ -21,6 +21,10 @@ public class HomeController {
         model.addAttribute("list",proceedsList);
         return "index";
     }
+    @GetMapping("/client")
+    String clientAdd(Model model){
+        return "client_add";
+    }
 
     @GetMapping("/search")
     String searchList(Model model, @RequestParam("date") String date){

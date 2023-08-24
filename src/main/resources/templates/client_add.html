@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>顧客追加</title>
+</head>
+<body>
+  <h2>顧客追加</h2>
+  <form  th:action="client/add" th:object="${clientRequest}">
+    <label>名前</label>
+    <input name="client_name" type="text" th:field="*{name}">
+    <label>電話番号</label>
+    <input name="telephone_number" type="text" th:field="*{telephoneNumber}">
+  </form>
+
+</body>
+</html>
