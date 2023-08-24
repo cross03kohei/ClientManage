@@ -19,8 +19,8 @@ public class Client {
     /**
      * 名前
      */
-    @Column(name="name", nullable = false, length = 30)
-    private String name;
+    @Column(name="client_name", nullable = false, length = 30)
+    private String clientName;
 
     /**
      * 電話番号

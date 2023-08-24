@@ -30,10 +30,10 @@
         </tr>
         </thead>
         <tbody id="proceeds_body">
-            <tr th:each="list : ${list}">
+            <tr th:each="list : ${list}"  >
                 <td th:text="${list.date}"></td>
-                <td th:text="${list.manager}"></td>
-                <td th:text="${list.client}"></td>
+                <td th:text="${list.manager.managerName}"></td>
+                <td th:text="${list.client.clientName}"></td>
                 <td th:text="${list.proceeds}"></td>
                 <td th:text="${list.payment}"></td>
             </tr>

@@ -21,4 +21,20 @@ public class ClientService {
     ProceedsRepository proceedsRepository;
 
 
+
+    public List<Proceeds> getProceedsAll(){
+        return proceedsRepository.findAll();
+    }
+
+    /**
+     * 日付が新しい順に習得する
+     *
+     */
+    public List<Proceeds> getProceedsDesc(){
+        return proceedsRepository.getProceedsDesc();
+    }
+
+    public List<Proceeds> getProceedsList(){
+        return proceedsRepository.getProceedsList();
+    }
 }

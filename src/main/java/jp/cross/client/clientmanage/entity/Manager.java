@@ -19,8 +19,8 @@ public class Manager {
     /**
      * 名前
      */
-    @Column(name="name", nullable = false, length = 30)
-    private String name;
+    @Column(name="manager_name", nullable = false, length = 30)
+    private String managerName;
 
     /**
      * 所属

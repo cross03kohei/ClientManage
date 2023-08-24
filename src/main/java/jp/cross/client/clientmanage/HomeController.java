@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -12,17 +13,17 @@ import java.util.List;
 public class HomeController {
 
     @Autowired
-    ClientService clientService;
+    ClientService service;
 
     @GetMapping("/index")
     String clientList(Model model) {
-
-
+        List<Proceeds> proceedsList = service.getProceedsList();
+        model.addAttribute("list",proceedsList);
         return "index";
     }
 
     @GetMapping("/search")
-    String searchList(Model model){
+    String searchList(Model model, @RequestParam("month") String month){
 
         return "index";
     }
