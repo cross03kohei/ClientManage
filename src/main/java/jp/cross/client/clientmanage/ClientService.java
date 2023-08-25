@@ -32,6 +32,10 @@ public class ClientService {
 
     public List<Client> getClientList() { return clientRepository.findAll();
     }
+    public Client getClient(Integer id){ return clientRepository.getClient(id);}
+    public List<Proceeds> getProceedsClient(Integer id){
+        return proceedsRepository.getProceedsClient(id);
+    }
 
     public List<Proceeds> searchProceeds(String date){
         return proceedsRepository.findAll(Specification.where(new ProceedsSpecification()

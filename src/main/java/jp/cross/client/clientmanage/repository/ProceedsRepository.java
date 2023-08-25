@@ -12,4 +12,7 @@ public interface ProceedsRepository extends JpaRepository<Proceeds,Integer>, Jpa
 
     @Query("SELECT m FROM Proceeds m order by m.date desc")
     List<Proceeds> getProceedsList();
+
+    @Query("SELECT m FROM Proceeds m WHERE m.client.id = :id order by m.date desc")
+    List<Proceeds> getProceedsClient(@Param("id") Integer id);
 }

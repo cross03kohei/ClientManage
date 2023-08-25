@@ -27,6 +27,14 @@ public class HomeController {
         model.addAttribute("clientRequest",new ClientRequest());
         return "client_add";
     }
+    @GetMapping("/client/{id}")
+    String ClientDetail(Model model,@PathVariable("id")Integer id){
+        List<Proceeds> proceedsList = service.getProceedsClient(id);
+        Client client = service.getClient(id);
+        model.addAttribute("list",proceedsList);
+        model.addAttribute("client",client);
+        return "client_detail";
+    }
     @GetMapping("/client/list")
     String clientList(Model model){
         List<Client> clients = service.getClientList();

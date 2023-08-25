@@ -25,6 +25,7 @@
         <th>名前</th>
         <th>電話番号</th>
         <th>住所</th>
+        <th></th>
     </tr>
     </thead>
     <tbody id="proceeds_body">
@@ -32,6 +33,11 @@
         <td th:text="${list.clientName}"></td>
         <td th:text="${list.telephoneNumber}"></td>
         <td th:text="${list.address}"></td>
+        <td>
+            <form th:action="@{${list.id}}">
+                <input type="submit" value="詳細">
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>
