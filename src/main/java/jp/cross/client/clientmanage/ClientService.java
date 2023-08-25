@@ -35,9 +35,20 @@ public class ClientService {
                 .dateContains(date)));
     }
 
+    public void saveClient(ClientRequest c){
+        Client client = createClient(c);
+        clientRepository.save(client);
+    }
+
+    /**
+     *Clientクラスに値を代入して渡す
+     */
+
     private Client createClient(ClientRequest c){
         Client client = new Client();
-
+        client.setClientName(c.getClientName());
+        client.setTelephoneNumber(c.getTelephoneNumber());
+        client.setAddress(c.getAddress());
         return client;
     }
 }
