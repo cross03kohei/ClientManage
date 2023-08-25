@@ -1,9 +1,11 @@
 package jp.cross.client.clientmanage;
 
+import jp.cross.client.clientmanage.entity.Client;
 import jp.cross.client.clientmanage.entity.Proceeds;
 import jp.cross.client.clientmanage.repository.ClientRepository;
 import jp.cross.client.clientmanage.repository.ManagerRepository;
 import jp.cross.client.clientmanage.repository.ProceedsRepository;
+import jp.cross.client.clientmanage.request.ClientRequest;
 import jp.cross.client.clientmanage.specification.ProceedsSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
@@ -33,4 +35,9 @@ public class ClientService {
                 .dateContains(date)));
     }
 
+    private Client createClient(ClientRequest c){
+        Client client = new Client();
+
+        return client;
+    }
 }

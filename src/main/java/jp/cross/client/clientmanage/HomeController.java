@@ -37,6 +37,7 @@ public class HomeController {
     String searchList(Model model, @RequestParam("date") String date){
         List<Proceeds> proceedsList = service.searchList(date);
         model.addAttribute("list",proceedsList);
+        model.addAttribute("date",date);
         return "index";
     }
 
