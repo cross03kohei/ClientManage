@@ -33,9 +33,14 @@ public class ClientService {
     public List<Client> getClientList() { return clientRepository.findAll();
     }
 
-    public List<Proceeds> searchList(String date){
+    public List<Proceeds> searchProceeds(String date){
         return proceedsRepository.findAll(Specification.where(new ProceedsSpecification()
                 .dateContains(date)));
+    }
+
+    public List<Client> searchClients(String name) {
+        ClientSpecification cs = new ClientSpecification();
+        return clientRepository.findAll(Specification.where(cs.clientNameContains(name)));
     }
 
     public void saveClient(ClientRequest c){

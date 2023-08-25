@@ -42,15 +42,16 @@ public class HomeController {
 
     @GetMapping("/search")
     String searchProceeds(Model model, @RequestParam("date") String date){
-        List<Proceeds> proceedsList = service.searchList(date);
+        List<Proceeds> proceedsList = service.searchProceeds(date);
         model.addAttribute("list",proceedsList);
         model.addAttribute("date",date);
         return "index";
     }
 
     @GetMapping("/search/client")
-    String searchClient(Model model, @RequestParam("clientName") String clientName){
-
+    String searchClient(Model model, @RequestParam("client_name") String clientName){
+        List<Client> clients = service.searchClients(clientName);
+        model.addAttribute("list",clients);
         return "client";
     }
 
