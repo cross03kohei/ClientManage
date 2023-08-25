@@ -46,6 +46,7 @@ public class ClientService {
 
     private Client createClient(ClientRequest c){
         Client client = new Client();
+        client.setId(c.getId());
         client.setClientName(c.getClientName());
         client.setTelephoneNumber(c.getTelephoneNumber());
         client.setAddress(c.getAddress());
