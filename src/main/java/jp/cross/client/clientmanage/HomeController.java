@@ -5,8 +5,7 @@ import jp.cross.client.clientmanage.request.ClientRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,8 +27,9 @@ public class HomeController {
         return "client_add";
     }
 
-    @GetMapping("/client/add")
-    String clientCreate(ClientRequest client){
+    @RequestMapping(value = "client/add")
+    String clientCreate(@ModelAttribute ClientRequest client){
+        service.saveClient(client);
         return "redirect:/index";
     }
 

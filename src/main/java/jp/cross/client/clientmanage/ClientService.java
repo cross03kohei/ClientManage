@@ -36,8 +36,7 @@ public class ClientService {
     }
 
     public void saveClient(ClientRequest c){
-        Client client = createClient(c);
-        clientRepository.save(client);
+        clientRepository.save(createClient(c));
     }
 
     /**
