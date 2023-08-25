@@ -30,6 +30,9 @@ public class ClientService {
         return proceedsRepository.getProceedsList();
     }
 
+    public List<Client> getClientList() { return clientRepository.findAll();
+    }
+
     public List<Proceeds> searchList(String date){
         return proceedsRepository.findAll(Specification.where(new ProceedsSpecification()
                 .dateContains(date)));

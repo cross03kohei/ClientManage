@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>顧客一覧</title>
+</head>
+<body>
+<h1>顧客一覧</h1>
+<div class="search_form">
+    <form action="/search">
+        <div class="form_date">
+            <label>顧客名</label>
+            <input name="client_name" type="text" id="client_name" th:value="${clientName}" >
+        </div>
+        <div class="search_submit">
+            <input type="submit" value="検索">
+        </div>
+    </form>
+</div>
+
+<h2>一覧</h2>
+<table class="proceeds_table">
+    <thead>
+    <tr>
+        <th>名前</th>
+        <th>電話番号</th>
+        <th>住所</th>
+    </tr>
+    </thead>
+    <tbody id="proceeds_body">
+    <tr th:each="list : ${list}"  >
+        <td th:text="${list.clientName}"></td>
+        <td th:text="${list.telephoneNumber}"></td>
+        <td th:text="${list.address}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
