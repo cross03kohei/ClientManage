@@ -1,6 +1,7 @@
 package jp.cross.client.clientmanage;
 
 import jp.cross.client.clientmanage.entity.Client;
+import jp.cross.client.clientmanage.entity.Manager;
 import jp.cross.client.clientmanage.entity.Proceeds;
 import jp.cross.client.clientmanage.repository.ClientRepository;
 import jp.cross.client.clientmanage.repository.ManagerRepository;
@@ -30,8 +31,8 @@ public class ClientService {
         return proceedsRepository.getProceedsList();
     }
 
-    public List<Client> getClientList() { return clientRepository.findAll();
-    }
+    public List<Client> getClientList() { return clientRepository.findAll();}
+    public List<Manager> getManagerList(){ return managerRepository.findAll();}
     public Client getClient(Integer id){ return clientRepository.getClient(id);}
     public List<Proceeds> getProceedsClient(Integer id){
         return proceedsRepository.getProceedsClient(id);

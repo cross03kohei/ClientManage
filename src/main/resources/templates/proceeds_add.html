@@ -6,13 +6,26 @@
 </head>
 <body>
 <h2>売上追加</h2>
-<form  th:action="@{/client/add}" th:object="${clientRequest}">
-  <label>名前</label>
-  <input name="client_name" type="text" th:field="*{clientName}">
-  <label>電話番号</label>
-  <input name="telephone_number" type="text" th:field="*{telephoneNumber}">
-  <label>住所</label>
-  <input name="address" type="text" th:field="*{address}">
+<form  th:action="@{client/proceeds/create}" th:object="${proceedsRequest}">
+  <input type="hidden" name="clientId" th:value="${id}" />
+  <label>日付</label>
+  <input name="date" type="date" th:field="*{date}">
+  <label>売上</label>
+  <input name="proceeds" type="text" th:field="*{proceeds}">
+  <label>経費</label>
+  <input name="cost" type="text" th:field="*{cost}">
+  <label>入金額</label>
+  <input name="payment" type="text" th:field="*{payment}">
+  <label>概要</label>
+  <input name="content" type="text" th:field="*{content}">
+  <label>担当者</label>
+  <select name="managerId">
+    <option
+            th:each="manager : ${managerList}"
+            th:value="${manager.id}"
+            th:text="${manager.managerName}"
+            th:selected="${manager.id == selectedValue}">
+    </option>
   <input type="submit" value="登録">
 </form>
 

@@ -1,8 +1,10 @@
 package jp.cross.client.clientmanage;
 
 import jp.cross.client.clientmanage.entity.Client;
+import jp.cross.client.clientmanage.entity.Manager;
 import jp.cross.client.clientmanage.entity.Proceeds;
 import jp.cross.client.clientmanage.request.ClientRequest;
+import jp.cross.client.clientmanage.request.ProceedsRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -68,6 +70,11 @@ public class HomeController {
      */
     @GetMapping("/client/proceeds/add/{id}")
     String proceedsAdd(Model model,@PathVariable("id")Integer id){
+        List<Manager> managers = service.getManagerList();
+        model.addAttribute("id",id); //登録の際に使用する顧客のID
+        model.addAttribute("proceedsRequest",new ProceedsRequest());
+        model.addAttribute("managerList",managers);
+        model.addAttribute("selectedValue", "01");
         return "proceeds_add";
     }
 
@@ -75,9 +82,11 @@ public class HomeController {
      *売上の登録、編集を行う
      */
     @GetMapping("/client/proceeds/create")
-    String proceedsCreate(Model model,@PathVariable("id")Integer id){
+    String proceedsCreate(@ModelAttribute ProceedsRequest proceedsRequest,
+                          @RequestParam("clientId")Integer clientId,
+                          @RequestParam("managerId")Integer managerId){
 
-        return "redirect:/client/{id}";
+        return "redirect:/client/{clientId}";
     }
 
     @GetMapping("/search")

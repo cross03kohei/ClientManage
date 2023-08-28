@@ -6,13 +6,11 @@ import lombok.Data;
 
 @Data
 public class ProceedsRequest {
-    private Integer id;
     private String content;
-    private String data;
+    private String date;
     private Integer cost;
     private Integer proceeds;
     private Integer payment;
-    private Manager manager;
-    private Client client;
-
+    private Integer managerId;
+    private Integer clientId;
 }
