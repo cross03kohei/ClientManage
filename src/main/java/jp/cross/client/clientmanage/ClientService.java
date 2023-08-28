@@ -34,6 +34,7 @@ public class ClientService {
     public List<Client> getClientList() { return clientRepository.findAll();}
     public List<Manager> getManagerList(){ return managerRepository.findAll();}
     public Client getClient(Integer id){ return clientRepository.getClient(id);}
+    public Manager getManager(Integer id){ return managerRepository.getManager(id);}
     public List<Proceeds> getProceedsClient(Integer id){
         return proceedsRepository.getProceedsClient(id);
     }
