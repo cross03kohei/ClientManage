@@ -11,6 +11,5 @@ public class ProceedsRequest {
     private Integer cost;
     private Integer proceeds;
     private Integer payment;
-    private Integer managerId;
-    private Integer clientId;
+
 }

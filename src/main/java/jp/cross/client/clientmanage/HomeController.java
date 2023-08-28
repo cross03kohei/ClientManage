@@ -85,7 +85,8 @@ public class HomeController {
     String proceedsCreate(@ModelAttribute ProceedsRequest proceedsRequest,
                           @RequestParam("clientId")Integer clientId,
                           @RequestParam("managerId")Integer managerId){
-
+        Client client = service.getClient(clientId);
+        Manager manager = service.getManager(managerId);
         return "redirect:/client/{clientId}";
     }
 

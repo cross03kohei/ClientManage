@@ -7,6 +7,7 @@ import jp.cross.client.clientmanage.repository.ClientRepository;
 import jp.cross.client.clientmanage.repository.ManagerRepository;
 import jp.cross.client.clientmanage.repository.ProceedsRepository;
 import jp.cross.client.clientmanage.request.ClientRequest;
+import jp.cross.client.clientmanage.request.ProceedsRequest;
 import jp.cross.client.clientmanage.specification.ProceedsSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
@@ -53,6 +54,9 @@ public class ClientService {
         clientRepository.save(createClient(c));
     }
 
+    public void saveProceeds(Client client, Manager manager, ProceedsRequest p){
+
+    }
     /**
      *Clientクラスに値を代入して渡す
      */
@@ -65,4 +69,6 @@ public class ClientService {
         client.setAddress(c.getAddress());
         return client;
     }
+
+
 }
