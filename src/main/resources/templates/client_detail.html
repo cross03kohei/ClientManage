@@ -9,5 +9,27 @@
     <h3>顧客名　<p th:text="${client.clientName}"></p></h3>
     <h3>電話番号　<p th:text="${client.telephoneNumber}"></p></h3>
     <h3>住所 <p th:text="${client.address}"></p></h3>
+    <a th:href="@{'proceeds/add/' + ${id}}">売上追加</a>
+    <h2>売上一覧</h2>
+    <table class="client_detail_table">
+        <thead>
+        <tr>
+            <th>日付</th>
+            <th>担当者</th>
+            <th>経費</th>
+            <th>売上</th>
+            <th>入金額</th>
+        </tr>
+        </thead>
+        <tbody id="proceeds_body">
+        <tr th:each="list : ${list}"  >
+            <td th:text="${list.date}"></td>
+            <td th:text="${list.manager.managerName}"></td>
+            <td th:text="${list.cost}"></td>
+            <td th:text="${list.proceeds}"></td>
+            <td th:text="${list.payment}"></td>
+        </tr>
+        </tbody>
+    </table>
 </body>
 </html>

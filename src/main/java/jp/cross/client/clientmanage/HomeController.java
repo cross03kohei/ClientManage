@@ -22,11 +22,19 @@ public class HomeController {
         model.addAttribute("list",proceedsList);
         return "index";
     }
+
+    /**
+     *顧客追加の画面表示
+     */
     @GetMapping("/client")
     String clientAdd(Model model){
         model.addAttribute("clientRequest",new ClientRequest());
         return "client_add";
     }
+
+    /**
+     * 顧客の詳細を表示すると同時にそれに紐づく売上一覧の表示をおこなう
+     */
     @GetMapping("/client/{id}")
     String ClientDetail(Model model,@PathVariable("id")Integer id){
         List<Proceeds> proceedsList = service.getProceedsClient(id);
@@ -35,6 +43,10 @@ public class HomeController {
         model.addAttribute("client",client);
         return "client_detail";
     }
+
+    /**
+     *顧客の一覧を表示する
+     */
     @GetMapping("/client/list")
     String clientList(Model model){
         List<Client> clients = service.getClientList();
@@ -42,10 +54,30 @@ public class HomeController {
         return "client";
     }
 
+    /**
+     *顧客を追加、編集を行う
+     */
     @RequestMapping(value = "client/add")
     String clientCreate(@ModelAttribute ClientRequest client){
         service.saveClient(client);
         return "redirect:/index";
+    }
+
+    /**
+     *売上登録の画面表示
+     */
+    @GetMapping("/client/proceeds/add/{id}")
+    String proceedsAdd(Model model,@PathVariable("id")Integer id){
+        return "proceeds_add";
+    }
+
+    /**
+     *売上の登録、編集を行う
+     */
+    @GetMapping("/client/proceeds/create")
+    String proceedsCreate(Model model,@PathVariable("id")Integer id){
+
+        return "redirect:/client/{id}";
     }
 
     @GetMapping("/search")
