@@ -4,10 +4,13 @@ import jp.cross.client.clientmanage.entity.Client;
 import jp.cross.client.clientmanage.entity.Manager;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 public class ProceedsRequest {
+    private Integer id;
     private String content;
-    private String date;
+    private Date date;
     private Integer cost;
     private Integer proceeds;
     private Integer payment;

@@ -72,7 +72,6 @@ public class HomeController {
     String proceedsAdd(Model model,@PathVariable("id")Integer id){
         List<Manager> managers = service.getManagerList();
         model.addAttribute("id",id); //登録の際に使用する顧客のID
-        model.addAttribute("proceedsRequest",new ProceedsRequest());
         model.addAttribute("managerList",managers);
         model.addAttribute("selectedValue", "01");
         return "proceeds_add";
@@ -81,13 +80,16 @@ public class HomeController {
     /**
      *売上の登録、編集を行う
      */
-    @GetMapping("/client/proceeds/create")
-    String proceedsCreate(@ModelAttribute ProceedsRequest proceedsRequest,
-                          @RequestParam("clientId")Integer clientId,
-                          @RequestParam("managerId")Integer managerId){
+    @RequestMapping(value = "proceeds/add")
+    String proceedsCreate(@RequestParam("client_id")Integer clientId,
+                          @RequestParam("manager_id")Integer managerId,
+                          @RequestParam("date")String date, @RequestParam("proceeds")Integer proceeds,
+                          @RequestParam("cost")Integer cost, @RequestParam("payment")Integer payment,
+                          @RequestParam("content")String content){
         Client client = service.getClient(clientId);
         Manager manager = service.getManager(managerId);
-        return "redirect:/client/{clientId}";
+        service.saveProceeds(client,manager,date,content,proceeds,cost,payment);
+        return "redirect:/index";
     }
 
     @GetMapping("/search")

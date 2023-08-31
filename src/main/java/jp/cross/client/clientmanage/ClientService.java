@@ -7,7 +7,7 @@ import jp.cross.client.clientmanage.repository.ClientRepository;
 import jp.cross.client.clientmanage.repository.ManagerRepository;
 import jp.cross.client.clientmanage.repository.ProceedsRepository;
 import jp.cross.client.clientmanage.request.ClientRequest;
-import jp.cross.client.clientmanage.request.ProceedsRequest;
+
 import jp.cross.client.clientmanage.specification.ProceedsSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
@@ -54,8 +54,10 @@ public class ClientService {
         clientRepository.save(createClient(c));
     }
 
-    public void saveProceeds(Client client, Manager manager, ProceedsRequest p){
-
+    public void saveProceeds(Client client, Manager manager, String date, String content,
+                             Integer proceed, Integer cost, Integer payment){
+        Proceeds proceeds = createProceeds(client,manager,date,content,proceed,cost,payment);
+        proceedsRepository.save(proceeds);
     }
     /**
      *Clientクラスに値を代入して渡す
@@ -70,5 +72,18 @@ public class ClientService {
         return client;
     }
 
+    private Proceeds createProceeds(Client client, Manager manager,String date,String content,
+                                    Integer proceed, Integer cost, Integer payment
+                                    ) {
+        Proceeds proceeds = new Proceeds();
+        proceeds.setClient(client);
+        proceeds.setManager(manager);
+        proceeds.setDate(date);
+        proceeds.setContent(content);
+        proceeds.setProceeds(proceed);
+        proceeds.setCost(cost);
+        proceeds.setPayment(payment);
+        return proceeds;
+    }
 
 }

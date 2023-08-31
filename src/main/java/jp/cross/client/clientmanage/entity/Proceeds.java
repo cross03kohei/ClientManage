@@ -20,9 +20,8 @@ public class Proceeds {
     /**
      * 日付型のカラム
      */
-    @Temporal(TemporalType.DATE)
-    @Column(name = "date")
-    private Date date;
+    @Column(name = "date",length = 30)
+    private String date;
 
     /**
      * 売上
